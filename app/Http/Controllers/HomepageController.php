@@ -16,6 +16,6 @@ class HomepageController extends Controller
 
     public function show($id) {
         $blog = Blog::with('user')->findOrFail($id);
-        return view('blogs.show', compact('blog'));
+        return view('my-blogs.showg', compact('blog'));
     }
 }
