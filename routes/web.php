@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ManageBlogController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Blog;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +18,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [HomepageController::class, 'index'])->name('home');
+
+Route::get('/blogs/{id}', [HomepageController::class, 'show'])->name('blogs.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
